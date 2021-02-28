@@ -6,9 +6,13 @@
 
 // for red, green, and blue color values
 let r, g, b;
+let cnv;
 
 function setup() {
-  createCanvas(720, 400);
+  cnv = createCanvas(720, 400);
+  cnv.id('mycanvas');
+  cnv.position( (windowWidth-width)/2, (windowHeight-height)/2 );
+
   // Pick colors randomly
   r = random(255);
   g = random(255);
