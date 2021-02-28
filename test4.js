@@ -36,8 +36,6 @@ function ClickRequestDeviceSensor(){
 }
 
 function setup() {
-  //ClickRequestDeviceSensor();
-  
   createCanvas(720, 400);
   // Pick colors randomly
   r = random(255);
@@ -57,6 +55,8 @@ function draw() {
 
 // When the user clicks the mouse
 function mousePressed() {
+  ClickRequestDeviceSensor();
+  
   // Check if mouse is inside the circle
   let d = dist(mouseX, mouseY, 360, 200);
   if (d < 100) {
