@@ -55,15 +55,6 @@ body{
 </head>
 <body>
 
-<div class="container">
-  <canvas id="mychart1" style="position:relative; width:90%; height: 30%;"></canvas>
-  <canvas id="mychart2" style="position:relative; width:90%; height: 30%;"></canvas>
-
-  <div id="cdiv">
-    <canvas width="80%" height="30%" id="mycanvas"></canvas>
-  </div>
-</div>
-
 <script>
 var isTouch = false;
 var motionData = [];
@@ -160,141 +151,10 @@ function resized(){
 }
 
 function touchStart( e ){
-  e.preventDefault();
-  //var obj = e.changedTouches[0];
-  //var touchY = obj.pageY;
-  isTouch = true;
-  motionData = [];
-  orientationData = [];
+
 }
 
 function touchEnd( e ){
-  e.preventDefault();
-  isTouch = false;
-
-  if( motionData && motionData.length > 0 ){
-    //. グラフ描画
-    var labels = [];
-    var x_data = [];
-    var y_data = [];
-    var z_data = [];
-    for( var i = 0; i < motionData.length; i ++ ){
-      var mot = motionData[i];
-      labels.push( '' + i );
-      x_data.push( mot['ac'].x );
-      y_data.push( mot['ac'].y );
-      z_data.push( mot['ac'].z );
-    }
-
-    var ctx1 = document.getElementById( 'mychart1' );
-    var myChart1 = new Chart( ctx1, {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'x',
-          borderWidth: 1,
-          backgroundColor: '#ffaaaa',
-          borderColor: '#ff5555',
-          fill: false,
-          data: x_data
-        },
-        {
-          label: 'y',
-          borderWidth: 1,
-          backgroundColor: '#aaffaa',
-          borderColor: '#55ff55',
-          fill: false,
-          data: y_data
-        },
-        {
-          label: 'z',
-          borderWidth: 1,
-          backgroundColor: '#aaaaff',
-          borderColor: '#5555ff',
-          fill: false,
-          data: z_data
-        }]
-      },
-      options: {
-        title: {
-          display: false,
-          text: '三軸加速度',
-          padding: 3
-        },
-        legend: {
-          labels: {
-            boxWidth: 30,
-            padding: 20
-          },
-          display: true
-        },
-        tooltips: {
-          mode: 'label'
-        }
-      }
-    });
-
-    motionData = [];
-  }
-
-  if( orientationData && orientationData.length > 0 ){
-    //. グラフ描画
-    var labels = [];
-    var fb_data = [];
-    var lr_data = [];
-    var dir_data = [];
-    for( var i = 0; i < orientationData.length; i ++ ){
-      var ori = orientationData[i];
-      labels.push( '' + i );
-      fb_data.push( ori['fb'] );
-      lr_data.push( ori['lr'] );
-      dir_data.push( ori['dir'] );
-    }
-
-    var ctx2 = document.getElementById( 'mychart2' );
-    var myChart2 = new Chart( ctx2, {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: '前後',
-          borderWidth: 1,
-          backgroundColor: '#ffaaff',
-          borderColor: '#ff55ff',
-          fill: false,
-          data: fb_data
-        },
-        {
-          label: '左右',
-          borderWidth: 1,
-          backgroundColor: '#aaffff',
-          borderColor: '#55ffff',
-          fill: false,
-          data: lr_data
-        }]
-      },
-      options: {
-        title: {
-          display: false,
-          text: '前後左右角度',
-          padding: 3
-        },
-        legend: {
-          labels: {
-            boxWidth: 30,
-            padding: 20
-          },
-          display: true
-        },
-        tooltips: {
-          mode: 'label'
-        }
-      }
-    });
-
-    orientationData = [];
-  }
 }
 
 function deviceMotion( e ){
