@@ -17,7 +17,7 @@ let orientationData = [];
 //.             : https://qiita.com/nakakaz11/items/a9be602874bd54819a18
 function ClickRequestDeviceSensor(){
   //. ユーザーに「許可」を明示させる必要がある
-  /*
+  
   DeviceOrientationEvent.requestPermission().then( function( response ){
     if( response === 'granted' ){
       window.addEventListener( "deviceorientation", deviceOrientation );
@@ -26,8 +26,8 @@ function ClickRequestDeviceSensor(){
     }
   }).catch( function( e ){
     console.log( e );
-  });*/
-
+  });
+/*
   DeviceMotionEvent.requestPermission().then( function( response ){
     if( response === 'granted' ){
       window.addEventListener( "devicemotion", deviceMotion );
@@ -37,7 +37,7 @@ function ClickRequestDeviceSensor(){
   }).catch( function( e ){
     console.log( e );
   });
-  
+  */
   //r = random(255);
   //g = random(255);
   //b = random(255);
@@ -76,7 +76,7 @@ function setup() {
   //button.positon( 0, 0 );
   button.mousePressed( startApp );
 
-  cnv = createCanvas(720, 400);
+  cnv = createCanvas( 720, 400 );
   cnv.id('mycanvas');
   cnv.position( (windowWidth-width)/2, (windowHeight-height)/2 );
 
@@ -87,7 +87,7 @@ function setup() {
 }
 
 function draw() {
-  background(127, 0, 0);
+  background(0, 0, 0);
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
