@@ -45,7 +45,6 @@ function deviceMotion( e ){
     var ac = e.acceleration;
     var acg = e.accelerationIncludingGravity;
     var rot = e.rotationRate;
-    r = 0;
   }
 }
 function deviceOrientation( e ){
@@ -55,7 +54,6 @@ function deviceOrientation( e ){
     var gamma = e.gamma; //. Left/Right
     var beta = e.beta;   //. Front/Back
     var alpha = e.alpha; //. Direction
-    r = 255;
   }
 }
 
@@ -76,7 +74,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 0, 255);
+  background(0, 255, 255);
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
