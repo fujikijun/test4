@@ -9,9 +9,9 @@ let r, g, b;
 let cnv;
 let button;
 
-var isTouch = false;
-var motionData = [];
-var orientationData = [];
+let isTouch = false;
+let motionData = [];
+let orientationData = [];
 
 //. iOS 13 対応 : https://bagelee.com/webar-vr/ios13-webar-webvr/
 //.             : https://qiita.com/nakakaz11/items/a9be602874bd54819a18
@@ -46,9 +46,9 @@ function deviceMotion( e ) {
   e.preventDefault();
   //if( isTouch )
   {
-    var ac = e.acceleration;
-    var acg = e.accelerationIncludingGravity;
-    var rot = e.rotationRate;
+    let ac = e.acceleration;
+    let acg = e.accelerationIncludingGravity;
+    let rot = e.rotationRate;
 
     r = ac;
     g = 0;
@@ -59,12 +59,12 @@ function deviceOrientation( e ) {
   e.preventDefault();
   //if( isTouch )
   {
-    var gamma = e.gamma; //. Left/Right
-    var beta = e.beta;   //. Front/Back
-    var alpha = e.alpha; //. Direction
+    let gamma = e.gamma; //. Left/Right
+    let beta = e.beta;   //. Front/Back
+    let alpha = e.alpha; //. Direction
 
-    r = ac;
-    g = acg;
+    r = gamma;
+    g = beta;
     b = 0;
   }
 }
@@ -86,7 +86,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 255, 0); 
+  background(255, 0, 0); 
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
