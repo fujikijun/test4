@@ -36,6 +36,10 @@ function ClickRequestDeviceSensor(){
   }).catch( function( e ){
     console.log( e );
   });
+  
+  r = random(255);
+  g = random(255);
+  b = random(255);
 }
 
 function deviceMotion( e ){
@@ -98,8 +102,6 @@ function mousePressed()
 function startApp()
 {
   ClickRequestDeviceSensor();
-  r = random(255);
-  g = random(255);
-  b = random(255);
+
   //button.remove(); //hide
 }
