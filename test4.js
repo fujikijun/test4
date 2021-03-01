@@ -20,8 +20,8 @@ function ClickRequestDeviceSensor(){
   DeviceOrientationEvent.requestPermission().then( function( response ){
     if( response === 'granted' ){
       window.addEventListener( "deviceorientation", deviceOrientation );
-      $('#sensorrequest').css( 'display', 'none' );
-      $('#cdiv').css( 'display', 'block' );
+      //$('#sensorrequest').css( 'display', 'none' );
+      //$('#cdiv').css( 'display', 'block' );
     }
   }).catch( function( e ){
     console.log( e );
@@ -30,8 +30,8 @@ function ClickRequestDeviceSensor(){
   DeviceMotionEvent.requestPermission().then( function( response ){
     if( response === 'granted' ){
       window.addEventListener( "devicemotion", deviceMotion );
-      $('#sensorrequest').css( 'display', 'none' );
-      $('#cdiv').css( 'display', 'block' );
+      //$('#sensorrequest').css( 'display', 'none' );
+      //$('#cdiv').css( 'display', 'block' );
     }
   }).catch( function( e ){
     console.log( e );
@@ -40,32 +40,22 @@ function ClickRequestDeviceSensor(){
 
 function deviceMotion( e ){
   e.preventDefault();
-  if( isTouch ){
+  //if( isTouch )
+  {
     var ac = e.acceleration;
     var acg = e.accelerationIncludingGravity;
     var rot = e.rotationRate;
-
-    var motion = {};
-    motion['ac'] = ac;
-    motion['acg'] = acg;
-    motion['rot'] = rot;
-
-    motionData.push( motion );
+    r = 0;
   }
 }
 function deviceOrientation( e ){
   e.preventDefault();
-  if( isTouch ){
+  //if( isTouch )
+  {
     var gamma = e.gamma; //. Left/Right
     var beta = e.beta;   //. Front/Back
     var alpha = e.alpha; //. Direction
-
-    var ori = {};
-    ori['dir'] = alpha;
-    ori['fb'] = beta;
-    ori['lr'] = gamma;
-
-    orientationData.push( ori );
+    r = 255;
   }
 }
 
