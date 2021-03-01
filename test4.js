@@ -78,7 +78,7 @@ function setup() {
 }
 
 function draw() {
-  background(127,127,0);
+  background(127,127,127);
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
@@ -105,5 +105,5 @@ function startApp()
   r = random(255);
   g = random(255);
   b = random(255);
-  button.remove(); //hide
+  //button.remove(); //hide
 }
