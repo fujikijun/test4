@@ -25,7 +25,7 @@ class Ball
   }
   
   render()
-  {/*
+  {
       this.x += this.xSpeed;
       this.y += this.ySpeed;
       if( this.x < this.range )
@@ -47,7 +47,7 @@ class Ball
       {
         this.y = height-this.range;
         this.ySpeed *= -1;
-      }*/
+      }
       fill( 64, 64, 64 );
       ellipse( this.x, this.y, this.range*2, this.range*2 );
   }
@@ -98,8 +98,8 @@ function deviceMotion( e )
     g = e.accelerationIncludingGravity.y*60+127;
     b = e.accelerationIncludingGravity.z*60+127;
     
-    ball.xSpeed += e.accelerationIncludingGravity.x*10;
-    ball.ySpeed += e.accelerationIncludingGravity.y*10;
+    ball.xSpeed += e.accelerationIncludingGravity.x;
+    ball.ySpeed += e.accelerationIncludingGravity.y;
   }
 }
 
