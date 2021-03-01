@@ -15,57 +15,57 @@ let orientationData = [];
 
 //. iOS 13 対応 : https://bagelee.com/webar-vr/ios13-webar-webvr/
 //.             : https://qiita.com/nakakaz11/items/a9be602874bd54819a18
-function ClickRequestDeviceSensor() {
+function ClickRequestDeviceSensor(){
   //. ユーザーに「許可」を明示させる必要がある
-  DeviceOrientationEvent.requestPermission().then( function( response ) {
-    if ( response === 'granted' ) {
+  DeviceOrientationEvent.requestPermission().then( function( response ){
+    if( response === 'granted' ){
       window.addEventListener( "deviceorientation", deviceOrientation );
-      //$('#sensorrequest').css( 'display', 'none' );
-      //$('#cdiv').css( 'display', 'block' );
+      $('#sensorrequest').css( 'display', 'none' );
+      $('#cdiv').css( 'display', 'block' );
     }
-  }
-  ).catch( function( e ) {
+  }).catch( function( e ){
     console.log( e );
-  }
-  );
+  });
 
-  DeviceMotionEvent.requestPermission().then( function( response ) {
-    if ( response === 'granted' ) {
+  DeviceMotionEvent.requestPermission().then( function( response ){
+    if( response === 'granted' ){
       window.addEventListener( "devicemotion", deviceMotion );
-      //$('#sensorrequest').css( 'display', 'none' );
-      //$('#cdiv').css( 'display', 'block' );
+      $('#sensorrequest').css( 'display', 'none' );
+      $('#cdiv').css( 'display', 'block' );
     }
-  }
-  ).catch( function( e ) {
+  }).catch( function( e ){
     console.log( e );
-  }
-  );
+  });
 }
 
-function deviceMotion( e ) {
+function deviceMotion( e ){
   e.preventDefault();
-  //if( isTouch )
-  {
-    let ac = e.acceleration;
-    let acg = e.accelerationIncludingGravity;
-    let rot = e.rotationRate;
+  if( isTouch ){
+    var ac = e.acceleration;
+    var acg = e.accelerationIncludingGravity;
+    var rot = e.rotationRate;
 
-    r = ac;
-    g = 0;
-    b = rot;
+    var motion = {};
+    motion['ac'] = ac;
+    motion['acg'] = acg;
+    motion['rot'] = rot;
+
+    motionData.push( motion );
   }
 }
-function deviceOrientation( e ) {
+function deviceOrientation( e ){
   e.preventDefault();
-  //if( isTouch )
-  {
-    let gamma = e.gamma; //. Left/Right
-    let beta = e.beta;   //. Front/Back
-    let alpha = e.alpha; //. Direction
+  if( isTouch ){
+    var gamma = e.gamma; //. Left/Right
+    var beta = e.beta;   //. Front/Back
+    var alpha = e.alpha; //. Direction
 
-    r = gamma;
-    g = beta;
-    b = 0;
+    var ori = {};
+    ori['dir'] = alpha;
+    ori['fb'] = beta;
+    ori['lr'] = gamma;
+
+    orientationData.push( ori );
   }
 }
 
@@ -86,7 +86,7 @@ function setup() {
 }
 
 function draw() {
-  background(255, 0, 0);
+  background(0, 0, 0);
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
