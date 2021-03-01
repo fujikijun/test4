@@ -20,8 +20,8 @@ function ClickRequestDeviceSensor(){
   DeviceOrientationEvent.requestPermission().then( function( response ){
     if( response === 'granted' ){
       window.addEventListener( "deviceorientation", deviceOrientation );
-      $('#sensorrequest').css( 'display', 'none' );
-      $('#cdiv').css( 'display', 'block' );
+      //$('#sensorrequest').css( 'display', 'none' );
+      //$('#cdiv').css( 'display', 'block' );
     }
   }).catch( function( e ){
     console.log( e );
@@ -30,8 +30,8 @@ function ClickRequestDeviceSensor(){
   DeviceMotionEvent.requestPermission().then( function( response ){
     if( response === 'granted' ){
       window.addEventListener( "devicemotion", deviceMotion );
-      $('#sensorrequest').css( 'display', 'none' );
-      $('#cdiv').css( 'display', 'block' );
+      //$('#sensorrequest').css( 'display', 'none' );
+      //$('#cdiv').css( 'display', 'block' );
     }
   }).catch( function( e ){
     console.log( e );
@@ -82,7 +82,7 @@ function setup() {
 }
 
 function draw() {
-  background(127,127,126);
+  background(127,127,0);
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
