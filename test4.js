@@ -31,22 +31,22 @@ class Ball
       if( this.x < this.range )
       {
         this.x = this.range;
-        this.xSpeed *= -0.5;
+        this.xSpeed *= -0.1;
       }
       if( this.y < this.range)
       {
         this.y = this.range;
-        this.ySpeed *= -0.5;
+        this.ySpeed *= -0.1;
       }
       if( this.x >= width-this.range )
       {
         this.x = width-this.range;
-        this.xSpeed *= -0.5;
+        this.xSpeed *= -0.1;
       }
       if( this.y >= height-this.range )
       {
         this.y = height-this.range;
-        this.ySpeed *= -0.5;
+        this.ySpeed *= -0.1;
       }
       fill( 64, 64, 64 );
       ellipse( this.x, this.y, this.range*2, this.range*2 );
