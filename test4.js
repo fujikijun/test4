@@ -19,7 +19,7 @@ function ClickRequestDeviceSensor() {
   //. ユーザーに「許可」を明示させる必要がある
   DeviceOrientationEvent.requestPermission().then( function( response ) {
     if ( response === 'granted' ) {
-      window.addEventListener( "deviceorientation", 
+      addEventListener( "deviceorientation", 
         function( e )
       {
         var gamma = e.gamma; //. Left/Right
@@ -41,7 +41,7 @@ function ClickRequestDeviceSensor() {
 
   DeviceMotionEvent.requestPermission().then( function( response ) {
     if ( response === 'granted' ) {
-      window.addEventListener( "devicemotion", deviceMotion );
+      addEventListener( "devicemotion", deviceMotion );
       //$('#sensorrequest').css( 'display', 'none' );
       //$('#cdiv').css( 'display', 'block' );
     }
@@ -96,7 +96,7 @@ function setup() {
 }
 
 function draw() {
-  background(127, 0, 127); 
+  background(127, 0, 255); 
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
