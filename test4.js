@@ -37,9 +37,9 @@ function ClickRequestDeviceSensor(){
     console.log( e );
   });
   
-  r = random(255);
-  g = random(255);
-  b = random(255);
+  //r = random(255);
+  //g = random(255);
+  //b = random(255);
 }
 
 function deviceMotion( e ){
@@ -50,9 +50,9 @@ function deviceMotion( e ){
     var acg = e.accelerationIncludingGravity;
     var rot = e.rotationRate;
         
-    r = e.acceleration.x*100+60;
-    g = e.acceleration.y*100+60;
-    b = e.acceleration.z*100+60;
+    //r = e.acceleration.x*100+60;
+    //g = e.acceleration.y*100+60;
+    //b = e.acceleration.z*100+60;
   }
 }
 function deviceOrientation( e ){
@@ -64,8 +64,8 @@ function deviceOrientation( e ){
     var alpha = e.alpha; //. Direction
     
     r = 255;
-    g = 255;
-    b = 255;
+    g = e.beta*100+60;
+    b = e.gamma*100+60;
   }
 }
 
