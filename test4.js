@@ -47,7 +47,7 @@ function deviceMotion( e ){
     var rot = e.rotationRate;
 
     r = ac;
-    g = acg;
+    g = 0;
     b = rot;
   }
 }
@@ -61,7 +61,7 @@ function deviceOrientation( e ){
     
     r = ac;
     g = acg;
-    b = rot;
+    b = 0;
   }
 }
 
@@ -82,7 +82,7 @@ function setup() {
 }
 
 function draw() {
-  background(127,127,0);
+  background(127,0,0);
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
