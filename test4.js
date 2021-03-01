@@ -19,17 +19,7 @@ function ClickRequestDeviceSensor() {
   //. ユーザーに「許可」を明示させる必要がある
   DeviceOrientationEvent.requestPermission().then( function( response ) {
     if ( response === 'granted' ) {
-      window.addEventListener( "deviceorientation", 
-        function( e )
-      {
-        var gamma = e.gamma; //. Left/Right
-        var beta = e.beta;   //. Front/Back
-        var alpha = e.alpha; //. Direction
-
-        r = ac;
-        g = acg;
-        b = 0;
-      });
+      window.addEventListener( "deviceorientation", deviceOrientation );
       //$('#sensorrequest').css( 'display', 'none' );
       //$('#cdiv').css( 'display', 'block' );
     }
