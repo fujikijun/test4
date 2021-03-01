@@ -13,6 +13,46 @@ let isTouch = false;
 let motionData = [];
 let orientationData = [];
 
+class Ball
+{
+  constructor()
+  {
+    this.x = width/2;
+    this.y = height/2;
+    this.xSpeed = 0;
+    this.ySpeed = 0;
+    this.range = 32;
+  }
+  
+  render()
+  {/*
+      this.x += this.xSpeed;
+      this.y += this.ySpeed;
+      if( this.x < this.range )
+      {
+        this.x = this.range;
+        this.xSpeed *= -1;
+      }
+      if( this.y < this.range)
+      {
+        this.y = this.range;
+        this.ySpeed *= -1;
+      }
+      if( this.x >= width-this.range )
+      {
+        this.x = width-this.range;
+        this.xSpeed *= -1;
+      }
+      if( this.y >= height-this.range )
+      {
+        this.y = height-this.range;
+        this.ySpeed *= -1;
+      }*/
+      fill( 64, 64, 64 );
+      ellipse( this.x, this.y, this.range*2, this.range*2 );
+  }
+}
+
 //. iOS 13 対応 : https://bagelee.com/webar-vr/ios13-webar-webvr/
 //.             : https://qiita.com/nakakaz11/items/a9be602874bd54819a18
 function ClickRequestDeviceSensor(){
@@ -43,7 +83,8 @@ function ClickRequestDeviceSensor(){
   //b = random(255);
 }
 
-function deviceMotion( e ){
+function deviceMotion( e )
+{
   e.preventDefault();
   //if( isTouch )
   {
@@ -54,9 +95,14 @@ function deviceMotion( e ){
     r = e.accelerationIncludingGravity.x*60+127;
     g = e.accelerationIncludingGravity.y*60+127;
     b = e.accelerationIncludingGravity.z*60+127;
+    
+    ball.xSpeed += e.accelerationIncludingGravity.x;
+    ball.ySpeed += e.accelerationIncludingGravity.y;
   }
 }
-function deviceOrientation( e ){
+
+function deviceOrientation( e )
+{
   e.preventDefault();
   //if( isTouch )
   {
@@ -70,13 +116,15 @@ function deviceOrientation( e ){
   }
 }
 
+let ball;
+
 function setup() {
 
   button = createButton('start');
   //button.positon( 0, 0 );
   button.mousePressed( startApp );
 
-  cnv = createCanvas( 720, 400 );
+  cnv = createCanvas( 400, 400 );
   cnv.id('mycanvas');
   cnv.position( (windowWidth-width)/2, (windowHeight-height)/2 );
 
@@ -84,15 +132,21 @@ function setup() {
   r = random(255);
   g = random(255);
   b = random(255);
+  
+  ball = new Ball();
 }
 
-function draw() {
-  background(255, 255, 255);
+function draw()
+{
+  background(0, 255, 255);
   // Draw a circle
+  /*
   strokeWeight(2);
   stroke(r, g, b);
   fill(r, g, b);
   ellipse(360, 200, 200, 200);
+  */
+  ball.render();
 }
 
 // When the user clicks the mouse
