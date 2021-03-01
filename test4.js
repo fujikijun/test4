@@ -58,6 +58,10 @@ function deviceOrientation( e ){
     var gamma = e.gamma; //. Left/Right
     var beta = e.beta;   //. Front/Back
     var alpha = e.alpha; //. Direction
+    
+    r = ac;
+    g = acg;
+    b = rot;
   }
 }
 
