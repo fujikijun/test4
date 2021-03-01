@@ -15,30 +15,44 @@ var orientationData = [];
 
 //. iOS 13 対応 : https://bagelee.com/webar-vr/ios13-webar-webvr/
 //.             : https://qiita.com/nakakaz11/items/a9be602874bd54819a18
-function ClickRequestDeviceSensor(){
+function ClickRequestDeviceSensor() {
   //. ユーザーに「許可」を明示させる必要がある
-  DeviceOrientationEvent.requestPermission().then( function( response ){
-    if( response === 'granted' ){
-      window.addEventListener( "deviceorientation", deviceOrientation );
+  DeviceOrientationEvent.requestPermission().then( function( response ) {
+    if ( response === 'granted' ) {
+      window.addEventListener( "deviceorientation", 
+        function( e )
+      {
+        var gamma = e.gamma; //. Left/Right
+        var beta = e.beta;   //. Front/Back
+        var alpha = e.alpha; //. Direction
+
+        r = ac;
+        g = acg;
+        b = 0;
+      });
       //$('#sensorrequest').css( 'display', 'none' );
       //$('#cdiv').css( 'display', 'block' );
     }
-  }).catch( function( e ){
+  }
+  ).catch( function( e ) {
     console.log( e );
-  });
+  }
+  );
 
-  DeviceMotionEvent.requestPermission().then( function( response ){
-    if( response === 'granted' ){
+  DeviceMotionEvent.requestPermission().then( function( response ) {
+    if ( response === 'granted' ) {
       window.addEventListener( "devicemotion", deviceMotion );
       //$('#sensorrequest').css( 'display', 'none' );
       //$('#cdiv').css( 'display', 'block' );
     }
-  }).catch( function( e ){
+  }
+  ).catch( function( e ) {
     console.log( e );
-  });
+  }
+  );
 }
 
-function deviceMotion( e ){
+function deviceMotion( e ) {
   e.preventDefault();
   //if( isTouch )
   {
@@ -51,14 +65,14 @@ function deviceMotion( e ){
     b = rot;
   }
 }
-function deviceOrientation( e ){
+function deviceOrientation( e ) {
   e.preventDefault();
   //if( isTouch )
   {
     var gamma = e.gamma; //. Left/Right
     var beta = e.beta;   //. Front/Back
     var alpha = e.alpha; //. Direction
-    
+
     r = ac;
     g = acg;
     b = 0;
@@ -66,11 +80,11 @@ function deviceOrientation( e ){
 }
 
 function setup() {
-  
+
   button = createButton('start');
   //button.positon( 0, 0 );
   button.mousePressed( startApp );
-  
+
   cnv = createCanvas(720, 400);
   cnv.id('mycanvas');
   cnv.position( (windowWidth-width)/2, (windowHeight-height)/2 );
@@ -82,7 +96,7 @@ function setup() {
 }
 
 function draw() {
-  background(127,0,0); 
+  background(127, 0, 127); 
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
