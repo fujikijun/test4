@@ -83,6 +83,8 @@ function ClickRequestDeviceSensor(){
   //b = random(255);
 }
 
+let ball;
+
 function deviceMotion( e )
 {
   e.preventDefault();
@@ -116,8 +118,6 @@ function deviceOrientation( e )
   }
 }
 
-let ball;
-
 function setup() {
 
   button = createButton('start');
@@ -138,7 +138,7 @@ function setup() {
 
 function draw()
 {
-  background(0, 255, 255);
+  background(255, 255, 255);
   // Draw a circle
   /*
   strokeWeight(2);
