@@ -98,8 +98,8 @@ function deviceMotion( e )
     g = e.accelerationIncludingGravity.y*60+127;
     b = e.accelerationIncludingGravity.z*60+127;
     
-    ball.xSpeed += e.accelerationIncludingGravity.x;
-    ball.ySpeed += e.accelerationIncludingGravity.y;
+    ball.xSpeed += e.accelerationIncludingGravity.x*0.1;
+    ball.ySpeed -= e.accelerationIncludingGravity.y*0.1;
   }
 }
 
