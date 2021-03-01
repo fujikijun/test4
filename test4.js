@@ -49,10 +49,10 @@ function deviceMotion( e ){
     var ac = e.acceleration;
     var acg = e.accelerationIncludingGravity;
     var rot = e.rotationRate;
-    
-    r = ac+60;
-    g = acg+60;
-    b = rot+60;
+        
+    r = ac.x+60;
+    g = ac.y+60;
+    b = ac.z+60;
   }
 }
 function deviceOrientation( e ){
