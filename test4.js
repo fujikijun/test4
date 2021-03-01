@@ -50,9 +50,9 @@ function deviceMotion( e ){
     var acg = e.accelerationIncludingGravity;
     var rot = e.rotationRate;
     
-    r = 0;
-    g = 0;
-    b = 0;
+    r = ac+60;
+    g = acg+60;
+    b = rot+60;
   }
 }
 function deviceOrientation( e ){
@@ -90,7 +90,7 @@ function draw() {
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
-  fill(r, g, b, 127);
+  fill(r, g, b);
   ellipse(360, 200, 200, 200);
 }
 
