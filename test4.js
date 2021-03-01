@@ -51,9 +51,9 @@ function deviceMotion( e ){
     var acg = e.accelerationIncludingGravity;
     var rot = e.rotationRate;
         
-    r = e.accelerationIncludingGravity.x*100+60;
-    g = e.accelerationIncludingGravity.y*100+60;
-    b = e.accelerationIncludingGravity.z*100+60;
+    r = e.accelerationIncludingGravity.x*60+127;
+    g = e.accelerationIncludingGravity.y*60+127;
+    b = e.accelerationIncludingGravity.z*60+127;
   }
 }
 function deviceOrientation( e ){
@@ -87,7 +87,7 @@ function setup() {
 }
 
 function draw() {
-  background(0, 0, 0);
+  background(255, 255, 255);
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
@@ -112,5 +112,5 @@ function startApp()
 {
   ClickRequestDeviceSensor();
 
-  //button.remove(); //hide
+  button.remove(); //hide
 }
