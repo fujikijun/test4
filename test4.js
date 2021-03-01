@@ -41,7 +41,7 @@ function ClickRequestDeviceSensor() {
 
   DeviceMotionEvent.requestPermission().then( function( response ) {
     if ( response === 'granted' ) {
-      cnv.addEventListener( "devicemotion", deviceMotion );
+      window.addEventListener( "devicemotion", deviceMotion );
       //$('#sensorrequest').css( 'display', 'none' );
       //$('#cdiv').css( 'display', 'block' );
     }
@@ -96,7 +96,7 @@ function setup() {
 }
 
 function draw() {
-  background(255, 255, 255); 
+  background(255, 0, 0); 
   // Draw a circle
   strokeWeight(2);
   stroke(r, g, b);
