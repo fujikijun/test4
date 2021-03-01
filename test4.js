@@ -166,5 +166,5 @@ function startApp()
 {
   ClickRequestDeviceSensor();
 
-  button.remove(); //hide
+  //button.remove(); //hide
 }
