@@ -7,8 +7,44 @@
 // for red, green, and blue color values
 let r, g, b;
 let cnv;
+let button;
+
+var isTouch = false;
+var motionData = [];
+var orientationData = [];
+
+//. iOS 13 対応 : https://bagelee.com/webar-vr/ios13-webar-webvr/
+//.             : https://qiita.com/nakakaz11/items/a9be602874bd54819a18
+function ClickRequestDeviceSensor(){
+  //. ユーザーに「許可」を明示させる必要がある
+  DeviceOrientationEvent.requestPermission().then( function( response ){
+    if( response === 'granted' ){
+      window.addEventListener( "deviceorientation", deviceOrientation );
+      $('#sensorrequest').css( 'display', 'none' );
+      $('#cdiv').css( 'display', 'block' );
+    }
+  }).catch( function( e ){
+    console.log( e );
+  });
+
+  DeviceMotionEvent.requestPermission().then( function( response ){
+    if( response === 'granted' ){
+      window.addEventListener( "devicemotion", deviceMotion );
+      $('#sensorrequest').css( 'display', 'none' );
+      $('#cdiv').css( 'display', 'block' );
+    }
+  }).catch( function( e ){
+    console.log( e );
+  });
+}
+
 
 function setup() {
+  
+  button = createButton('start');
+  //button.positon( 0, 0 );
+  button.mousePressed( startApp );
+  
   cnv = createCanvas(720, 400);
   cnv.id('mycanvas');
   cnv.position( (windowWidth-width)/2, (windowHeight-height)/2 );
@@ -16,7 +52,7 @@ function setup() {
   // Pick colors randomly
   r = random(255);
   g = random(255);
-  b = random(255);  
+  b = random(255);
 }
 
 function draw() {
@@ -29,9 +65,8 @@ function draw() {
 }
 
 // When the user clicks the mouse
-function mousePressed() {
-  ClickRequestDeviceSensor();
-  
+function mousePressed()
+{  
   // Check if mouse is inside the circle
   let d = dist(mouseX, mouseY, 360, 200);
   if (d < 100) {
@@ -40,4 +75,13 @@ function mousePressed() {
     g = random(255);
     b = random(255);
   }
+}
+
+function startApp()
+{
+  ClickRequestDeviceSensor();
+  r = random(255);
+  g = random(255);
+  b = random(255);
+  button.remove(); //hide
 }
