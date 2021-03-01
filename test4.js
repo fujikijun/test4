@@ -38,6 +38,28 @@ function ClickRequestDeviceSensor(){
   });
 }
 
+function deviceMotion( e ){
+  e.preventDefault();
+  //if( isTouch )
+  {
+    var ac = e.acceleration;
+    var acg = e.accelerationIncludingGravity;
+    var rot = e.rotationRate;
+
+    r = ac;
+    g = acg;
+    b = rot;
+  }
+}
+function deviceOrientation( e ){
+  e.preventDefault();
+  //if( isTouch )
+  {
+    var gamma = e.gamma; //. Left/Right
+    var beta = e.beta;   //. Front/Back
+    var alpha = e.alpha; //. Direction
+  }
+}
 
 function setup() {
   
