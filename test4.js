@@ -39,22 +39,22 @@ class Ball
     
     if ( this.x < -width/2+this.range )
     {
-      this.x = this.range;
+      this.x = -width/2+this.range;
       this.xSpeed *= -0.4;
     }
     if ( this.y < -height/2+this.range)
     {
-      this.y = this.range;
+      this.y = -height/2+this.range;
       this.ySpeed *= -0.4;
     }
     if ( this.x >= width/2-this.range )
     {
-      this.x = width-this.range;
+      this.x = width/2-this.range;
       this.xSpeed *= -0.4;
     }
     if ( this.y >= height/2-this.range )
     {
-      this.y = height-this.range;
+      this.y = height/2-this.range;
       this.ySpeed *= -0.4;
     }
     fill( r, g, b );
@@ -174,7 +174,7 @@ function setup() {
 
 function draw()
 {
-  background(127, 255, 127);
+  background(255, 255, 255);
   // Draw a circle
   /*
   strokeWeight(2);
