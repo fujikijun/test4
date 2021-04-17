@@ -149,7 +149,7 @@ function deviceOrientation( e )
 
 function preload()
 {
-  TradeWindsFont = loadFont('MS-PGothic-48.vlw');
+  TradeWindsFont = loadFont('data/arial.ttf');
 }
 
 // ------------------------------------------------------------------------------
