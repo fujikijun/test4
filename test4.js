@@ -151,7 +151,7 @@ function setup() {
   //button.positon( 0, 0 );
   button.mousePressed( startApp );
 
-  cnv = createCanvas( 400, 400 );
+  cnv = createCanvas( 400, 400, WEBGL );
   cnv.id('mycanvas');
   cnv.position( (windowWidth-width)/2, (windowHeight-height)/2 );
 
