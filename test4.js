@@ -182,7 +182,7 @@ function setup() {
 
 function draw()
 {
-  background(200, 200, 200);
+  background(200, 255, 200);
   
   // Draw a circle
   /*
@@ -195,7 +195,8 @@ function draw()
   ball.render();
 
   fill( 0 );
-  text( myCurrentPosition, 0, 0 );
+  text( 'speed:'+myCurrentSpeed, 0, 0 );
+  text( 'pos:'+myCurrentPosition, 20, 0 );
 }
 
 // ------------------------------------------------------------------------------
