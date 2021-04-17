@@ -36,7 +36,7 @@ class Ball
   {
     this.x += this.xSpeed;
     this.y += this.ySpeed;
-    
+
     if ( this.x < -width/2+this.range )
     {
       this.x = -width/2+this.range;
@@ -182,12 +182,12 @@ function draw()
    fill(r, g, b);
    ellipse(360, 200, 200, 200);
    */
-   
+
   ball.render();
 
   fill( 0 );
   text( myCurrentPosition, 0, 0 );
-    text( 'test', 0, 0 );
+  text( 'test', 0, 0 );
 }
 
 // ------------------------------------------------------------------------------
