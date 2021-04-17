@@ -185,7 +185,7 @@ function setup() {
 
 function draw()
 {
-  background(255, 255, 200);
+  background(255, 255, 255);
   
   // Draw a circle
   /*
