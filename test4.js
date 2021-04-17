@@ -25,8 +25,8 @@ class Ball
 {
   constructor()
   {
-    this.x = width/2;
-    this.y = height/2;
+    this.x = 0;
+    this.y = 0;
     this.xSpeed = 0;
     this.ySpeed = 0;
     this.range = 32;
@@ -36,27 +36,27 @@ class Ball
   {
     this.x += this.xSpeed;
     this.y += this.ySpeed;
-    /*
-    if ( this.x < this.range )
+    
+    if ( this.x < -width/2+this.range )
     {
       this.x = this.range;
       this.xSpeed *= -0.4;
     }
-    if ( this.y < this.range)
+    if ( this.y < -height/2+this.range)
     {
       this.y = this.range;
       this.ySpeed *= -0.4;
     }
-    if ( this.x >= width-this.range )
+    if ( this.x >= width/2-this.range )
     {
       this.x = width-this.range;
       this.xSpeed *= -0.4;
     }
-    if ( this.y >= height-this.range )
+    if ( this.y >= height/2-this.range )
     {
       this.y = height-this.range;
       this.ySpeed *= -0.4;
-    }*/
+    }
     fill( r, g, b );
     ellipse( this.x, this.y, this.range*2, this.range*2 );
   }
