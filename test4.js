@@ -107,9 +107,9 @@ function deviceMotion( e )
     var acg = e.accelerationIncludingGravity;
     var rot = e.rotationRate;
         
-    r = e.accelerationIncludingGravity.x*60+127;
-    g = e.accelerationIncludingGravity.y*60+127;
-    b = e.accelerationIncludingGravity.z*60+127;
+    //r = e.accelerationIncludingGravity.x*60+127;
+    //g = e.accelerationIncludingGravity.y*60+127;
+    //b = e.accelerationIncludingGravity.z*60+127;
     
     ball.xSpeed += e.accelerationIncludingGravity.x*0.1;
     ball.ySpeed -= e.accelerationIncludingGravity.y*0.1;
