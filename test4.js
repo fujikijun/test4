@@ -16,6 +16,7 @@ let motionData = [];
 let orientationData = [];
 let myCurrentSpeed = 0;
 let myCurrentPosition = 0;
+let TradeWindsFont;
 
 // ------------------------------------------------------------------------------
 // Ball
@@ -146,6 +147,11 @@ function deviceOrientation( e )
   }
 }
 
+function preload()
+{
+  TradeWindsFont = loadFont('data/MS-PGothic-48');
+}
+
 // ------------------------------------------------------------------------------
 // setup
 // ------------------------------------------------------------------------------
@@ -159,6 +165,8 @@ function setup() {
   cnv = createCanvas( 400, 400, WEBGL );
   cnv.id('mycanvas');
   cnv.position( (windowWidth-width)/2, (windowHeight-height)/2 );
+
+  textFont(TradeWindsFont);
 
   // Pick colors randomly
   r = random(255);
