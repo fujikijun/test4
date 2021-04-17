@@ -174,7 +174,7 @@ function setup() {
 
 function draw()
 {
-  background(255, 255, 255);
+  background(200, 255, 255);
   // Draw a circle
   /*
   strokeWeight(2);
@@ -185,7 +185,7 @@ function draw()
   ball.render();
 
   fill( 0 );
-  text( myCurrentPosition, 20, 100 );
+  text( myCurrentPosition, 0, 0 );
 }
 
 // ------------------------------------------------------------------------------
