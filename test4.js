@@ -29,33 +29,33 @@ class Ball
     this.ySpeed = 0;
     this.range = 32;
   }
-  
+
   render()
   {
-      this.x += this.xSpeed;
-      this.y += this.ySpeed;
-      if( this.x < this.range )
-      {
-        this.x = this.range;
-        this.xSpeed *= -0.4;
-      }
-      if( this.y < this.range)
-      {
-        this.y = this.range;
-        this.ySpeed *= -0.4;
-      }
-      if( this.x >= width-this.range )
-      {
-        this.x = width-this.range;
-        this.xSpeed *= -0.4;
-      }
-      if( this.y >= height-this.range )
-      {
-        this.y = height-this.range;
-        this.ySpeed *= -0.4;
-      }
-      fill( r, g, b );
-      ellipse( this.x, this.y, this.range*2, this.range*2 );
+    this.x += this.xSpeed;
+    this.y += this.ySpeed;
+    if ( this.x < this.range )
+    {
+      this.x = this.range;
+      this.xSpeed *= -0.4;
+    }
+    if ( this.y < this.range)
+    {
+      this.y = this.range;
+      this.ySpeed *= -0.4;
+    }
+    if ( this.x >= width-this.range )
+    {
+      this.x = width-this.range;
+      this.xSpeed *= -0.4;
+    }
+    if ( this.y >= height-this.range )
+    {
+      this.y = height-this.range;
+      this.ySpeed *= -0.4;
+    }
+    fill( r, g, b );
+    ellipse( this.x, this.y, this.range*2, this.range*2 );
   }
 }
 
@@ -68,27 +68,31 @@ class Ball
 function ClickRequestDeviceSensor()
 {
   //. ユーザーに「許可」を明示させる必要がある
-  
-  DeviceOrientationEvent.requestPermission().then( function( response ){
-    if( response === 'granted' ){
+
+  DeviceOrientationEvent.requestPermission().then( function( response ) {
+    if ( response === 'granted' ) {
       window.addEventListener( "deviceorientation", deviceOrientation );
       //$('#sensorrequest').css( 'display', 'none' );
       //$('#cdiv').css( 'display', 'block' );
     }
-  }).catch( function( e ){
+  }
+  ).catch( function( e ) {
     console.log( e );
-  });
+  }
+  );
 
-  DeviceMotionEvent.requestPermission().then( function( response ){
-    if( response === 'granted' ){
+  DeviceMotionEvent.requestPermission().then( function( response ) {
+    if ( response === 'granted' ) {
       window.addEventListener( "devicemotion", deviceMotion );
       //$('#sensorrequest').css( 'display', 'none' );
       //$('#cdiv').css( 'display', 'block' );
     }
-  }).catch( function( e ){
+  }
+  ).catch( function( e ) {
     console.log( e );
-  });
-  
+  }
+  );
+
   //r = random(255);
   //g = random(255);
   //b = random(255);
@@ -106,15 +110,13 @@ function deviceMotion( e )
     var ac = e.acceleration;
     var acg = e.accelerationIncludingGravity;
     var rot = e.rotationRate;
-        
+
     r = 0;
     //r = e.acceleration.x*60+127;
     g = e.acceleration.y*60+127;
     //b = e.accelerationIncludingGravity.z*60+127;
     b = 0;
-    fill( 0 );
-    text( g, 20, 200 );
-    
+
     ball.xSpeed += e.accelerationIncludingGravity.x*0.1;
     ball.ySpeed -= e.accelerationIncludingGravity.y*0.1;
   }
@@ -132,7 +134,7 @@ function deviceOrientation( e )
     var gamma = e.gamma; //. Left/Right
     var beta = e.beta;   //. Front/Back
     var alpha = e.alpha; //. Direction
-    
+
     //r = 255;
     //g = e.beta*100+60;
     //b = e.gamma*100+60;
@@ -157,7 +159,7 @@ function setup() {
   r = random(255);
   g = random(255);
   b = random(255);
-  
+
   ball = new Ball();
 }
 
@@ -171,11 +173,14 @@ function draw()
   // Draw a circle
   /*
   strokeWeight(2);
-  stroke(r, g, b);
-  fill(r, g, b);
-  ellipse(360, 200, 200, 200);
-  */
+   stroke(r, g, b);
+   fill(r, g, b);
+   ellipse(360, 200, 200, 200);
+   */
   ball.render();
+
+  fill( 0 );
+  text( g, 20, 200 );
 }
 
 // ------------------------------------------------------------------------------
