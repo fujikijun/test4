@@ -36,6 +36,7 @@ class Ball
   {
     this.x += this.xSpeed;
     this.y += this.ySpeed;
+    /*
     if ( this.x < this.range )
     {
       this.x = this.range;
@@ -55,7 +56,7 @@ class Ball
     {
       this.y = height-this.range;
       this.ySpeed *= -0.4;
-    }
+    }*/
     fill( r, g, b );
     ellipse( this.x, this.y, this.range*2, this.range*2 );
   }
