@@ -184,7 +184,7 @@ function draw()
   ball.render();
 
   fill( 0 );
-  text( currentPosition, 20, 200 );
+  //text( currentPosition, 20, 200 );
 }
 
 // ------------------------------------------------------------------------------
