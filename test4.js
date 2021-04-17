@@ -157,8 +157,7 @@ function setup() {
 
   cnv = createCanvas( 400, 400, WEBGL );
   cnv.id('mycanvas');
-//  cnv.position( (windowWidth-width)/2, (windowHeight-height)/2 );
-  cnv.position( 0, 0 );
+  cnv.position( (windowWidth-width)/2, (windowHeight-height)/2 );
 
   // Pick colors randomly
   r = random(255);
