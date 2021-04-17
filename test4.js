@@ -4,6 +4,8 @@
  * @description The circle changes color when you click on it.
  */
 
+let ball;
+
 // for red, green, and blue color values
 let r, g, b;
 let cnv;
@@ -52,7 +54,7 @@ class Ball
         this.y = height-this.range;
         this.ySpeed *= -0.4;
       }
-      fill( 64, 64, 64 );
+      fill( r, g, b );
       ellipse( this.x, this.y, this.range*2, this.range*2 );
   }
 }
@@ -92,8 +94,6 @@ function ClickRequestDeviceSensor()
   //b = random(255);
 }
 
-let ball;
-
 // ------------------------------------------------------------------------------
 // deviceMotion
 // ------------------------------------------------------------------------------
@@ -115,6 +115,10 @@ function deviceMotion( e )
     ball.ySpeed -= e.accelerationIncludingGravity.y*0.1;
   }
 }
+
+// ------------------------------------------------------------------------------
+// deviceOrientation
+// ------------------------------------------------------------------------------
 
 function deviceOrientation( e )
 {
