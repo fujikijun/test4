@@ -182,7 +182,7 @@ function draw()
 function mousePressed()
 {  
   // Check if mouse is inside the circle
-  let d = dist(mouseX, mouseY, 360, 200);
+  let d = dist(mouseX, mouseY, ball.x, ball.y);
   if (d < 100) {
     // Pick new random color values
     r = random(255);
