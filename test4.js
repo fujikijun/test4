@@ -182,7 +182,7 @@ function setup() {
 
 function draw()
 {
-  background(200, 255, 200); 
+  background(200, 255, 255); 
   // Draw a circle
   /*
   strokeWeight(2);
@@ -195,7 +195,7 @@ function draw()
 
   fill( 0 );
   text( 'speed:'+myCurrentSpeed, 0, 0 );
-  text( 'pos:'+myCurrentPosition, 20, 0 );
+  text( 'pos:'+myCurrentPosition, 0, 20 );
 }
 
 // ------------------------------------------------------------------------------
