@@ -182,6 +182,7 @@ function draw()
    fill(r, g, b);
    ellipse(360, 200, 200, 200);
    */
+   
   ball.render();
 
   fill( 0 );
