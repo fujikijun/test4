@@ -182,7 +182,8 @@ function setup() {
 
 function draw()
 {
-  background(255, 255, 255); 
+  background(255, 255, 255);
+  
   // Draw a circle
   /*
   strokeWeight(2);
