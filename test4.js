@@ -14,8 +14,8 @@ let button;
 let isTouch = false;
 let motionData = [];
 let orientationData = [];
-//let currentSpeed = 0;
-//let currentPosition = 0;
+let currentSpeed = 0;
+let currentPosition = 0;
 
 // ------------------------------------------------------------------------------
 // Ball
@@ -118,8 +118,8 @@ function deviceMotion( e )
     g = e.acceleration.y*60+127;
     //b = e.accelerationIncludingGravity.z*60+127;
     b = 0;
-    //currentSpeed += e.acceleration.y;
-    //currentPosition += currentSpeed;
+    currentSpeed += e.acceleration.y;
+    currentPosition += currentSpeed;
 
     ball.xSpeed += e.accelerationIncludingGravity.x*0.1;
     ball.ySpeed -= e.accelerationIncludingGravity.y*0.1;
@@ -184,7 +184,7 @@ function draw()
   ball.render();
 
   fill( 0 );
-  //text( currentPosition, 20, 200 );
+  text( currentPosition, 20, 200 );
 }
 
 // ------------------------------------------------------------------------------
