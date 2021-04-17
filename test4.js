@@ -112,6 +112,7 @@ function deviceMotion( e )
     g = e.acceleration.y*60+127;
     //b = e.accelerationIncludingGravity.z*60+127;
     b = 0;
+    fill( 0 );
     text( g, 20, 200 );
     
     ball.xSpeed += e.accelerationIncludingGravity.x*0.1;
