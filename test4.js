@@ -14,8 +14,8 @@ let button;
 let isTouch = false;
 let motionData = [];
 let orientationData = [];
-let currentSpeed = 0;
-let currentPosition = 0;
+//let currentSpeed = 0;
+//let currentPosition = 0;
 
 // ------------------------------------------------------------------------------
 // Ball
