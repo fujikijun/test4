@@ -120,8 +120,8 @@ function deviceMotion( e )
     g = e.acceleration.y*60+127;
     //b = e.accelerationIncludingGravity.z*60+127;
     b = 0;
-    myCurrentSpeed += e.acceleration.y;
-    if( myCurrentSpeed > 10 )
+    //myCurrentSpeed += e.acceleration.y;
+    if( e.acceleration.y > 1 )
     {
       myCurrentPosition += 1;
     }
