@@ -14,8 +14,8 @@ let button;
 let isTouch = false;
 let motionData = [];
 let orientationData = [];
-let currentSpeed = 0;
-let currentPosition = 0;
+let myCurrentSpeed = 0;
+let myCurrentPosition = 0;
 
 // ------------------------------------------------------------------------------
 // Ball
@@ -118,8 +118,8 @@ function deviceMotion( e )
     g = e.acceleration.y*60+127;
     //b = e.accelerationIncludingGravity.z*60+127;
     b = 0;
-    currentSpeed += e.acceleration.y;
-    currentPosition += currentSpeed;
+    myCurrentSpeed += e.acceleration.y;
+    myCurrentPosition += myCurrentSpeed;
 
     ball.xSpeed += e.accelerationIncludingGravity.x*0.1;
     ball.ySpeed -= e.accelerationIncludingGravity.y*0.1;
@@ -157,7 +157,7 @@ function setup() {
 
   cnv = createCanvas( 400, 400, WEBGL );
   cnv.id('mycanvas');
-  //cnv.position( (windowWidth-width)/2, (windowHeight-height)/2 );
+  cnv.position( (windowWidth-width)/2, (windowHeight-height)/2 );
 
   // Pick colors randomly
   r = random(255);
@@ -184,7 +184,7 @@ function draw()
   ball.render();
 
   fill( 0 );
-  text( currentPosition, 20, 100 );
+  text( myCurrentPosition, 20, 100 );
 }
 
 // ------------------------------------------------------------------------------
